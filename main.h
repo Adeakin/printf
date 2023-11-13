@@ -40,14 +40,15 @@ struct fmt
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
+int _strlen(char *s);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
 
-
-/* functions to call write */
 void callwriteToBuf(char *buf, size_t *bufIndex, const char *data, size_t dataSize);
 void flushBuf(int fileDes, char *buf, size_t *bufIndex);
+void my_printf(const char* format, ...);
+
 
 #endif /* MAIN_H */

@@ -11,12 +11,12 @@
 int _printf(const char *format, ...)
 {
 	int spec_char = 0;
-	va_list lead_list;
+	va_list args;
 
 	if (format == NULL)
 		return (-1);
 
-	va_start(lead_list, format);
+	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
@@ -24,11 +24,11 @@ int _printf(const char *format, ...)
 			switch (*(++format))
 			{
 				case 'c':
-					putchar(va_arg(lead_list, int));
+					putchar(va_arg(args, int));
 					spec_char++;
 					break;
 				case 's':
-					spec_char += fputs(va_arg(lead_list, char *), stdout);
+					spec_char += fputs(va_arg(args, char *), stdout);
 					break;
 				case '%':
 					putchar('%');
@@ -45,6 +45,6 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(lead_list);
+	va_end(args);
 	return (spec_char);
 }
