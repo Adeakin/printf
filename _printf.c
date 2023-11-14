@@ -2,44 +2,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdarg.h>
-#include <ctype.h>
 #include "func.h"
+
 /**
  * _printf - Printf function
- * @format: format
  *
- * Return: the number of characters printed (excluding the null byte)
+ * Return: the number of characters printed 
  */
-
 int _printf(const char *format, ...)
 {
-	int spec_char = 0, n = 0;
+	int spec_char = 0;
 	va_list args_list;
 
 	if (format == NULL)
 		return (-1);
 
 	va_start(args_list, format);
-	while (format[n] != '\0')
+	while (*format)
 	{
-		if (format[n] == '%' && format[n + 1] == 'c')
+		if (*format == '%')
 		{
-			spec_char += prinT_f(args_list);
-			n += 2;
+			switch (*(++format))
+			{
+				case 'c':
+					putchar(va_arg(args_list, int));
+					spec_char++;
+					break;
+				case 's':
+					puts(va_arg(args_list, char *));
+					spec_char++;
+					break;
+				default:
+					putchar(*format);
+					spec_char++;
+			}
 		}
-		else if (format[n] == '%' && format[n + 1] == 's')
-		{
-			spec_char += prinT_f(args_list);
-			n += 2;
-		}
-		
 		else
 		{
-			_putchar(format[n]);
-			spec_char++;
-			n++;
+			putchar(*format);
 		}
+		format++;
 	}
 	va_end(args_list);
 	return (spec_char);
