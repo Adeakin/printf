@@ -1,4 +1,6 @@
 #include "main.h"
+#include "func.h"
+#include <stdio.h>
 /**
  * _convert - fuct to convert unsigned int to binary
  *
@@ -11,7 +13,7 @@ std::string intToBinary(unsigned int value)
 }
 
 /**
- * _convert - convert unsigned int to binary
+ * my_printf - convert unsigned int to binary
  *
  * Return: size of unsigned int
  */

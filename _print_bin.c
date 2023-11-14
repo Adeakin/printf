@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <ctype.h>
-#include "funcs.h"
+#include "func.h"
 
 /**
  * to_print_bin - converts int to octal
@@ -51,7 +51,7 @@ char *to_print_bin(va_list args_list)
  */
 int _print_bin(va_list args_list)
 {
-	char *str_ptr = int_to_oct(args_list);
+	char *str_ptr = int_to_str(args_list);
 	int len = 0;
 	while (str_ptr && *str_ptr)
 	{

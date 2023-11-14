@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <ctype.h>
-#include "main.h"
+#include "func.h"
 
 /**
  * prinT_f - Prints a single character to stdout

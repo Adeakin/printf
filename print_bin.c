@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <ctype.h>
-#include "funcs.h"
+#include "func.h"
 
 /**
  * print_bin - convernts positive values to base 2

@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <ctype.h>
-#include "funcs.h"
+#include "func.h"
 
 /**
  * convert_int - Prints an integer to stdout
@@ -23,10 +23,10 @@ int convert_int(va_list args_list)
 		exit(EXIT_FAILURE);
 	}
 	/*str[_strlen(str)] = '\0';*/
-	int_to_str(n, str);
+	int_to_str(x, str);
 	len = _strlen(str);
 	y = 0;
-	while (m < len)
+	while (y < len)
 	{
 		_putchar(str[y]);
 		y++;

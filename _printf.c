@@ -25,32 +25,15 @@ int _printf(const char *format, ...)
 	{
 		if (format[n] == '%' && format[n + 1] == 'c')
 		{
-			spec_char += prinTf(args_list);
+			spec_char += prinT_f(args_list);
 			n += 2;
 		}
 		else if (format[n] == '%' && format[n + 1] == 's')
 		{
-			spec_char += _prinTf(args_list);
+			spec_char += prinT_f(args_list);
 			n += 2;
 		}
-		else if (format[n] == '%' && format[n + 1] == 'd')
-		{
-			spec_char += convert(args_list);
-			n += 2;
-		}
-		else if (format[n] == '%' && format[n + 1] == 'i')
-		{
-			spec_char += convert(args_list);
-			n += 2;
-		}
-		else if (format[n] == '%' && format[n + 1] == 'b')
-		{
-			unsigned int num = va_arg(args_list, unsigned int);
-			char *binary = print_bin(num);
-			spec_char +=  _print_bin(binary);
-			free(binary);
-			n += 2;
-		}
+		
 		else
 		{
 			_putchar(format[n]);
