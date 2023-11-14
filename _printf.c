@@ -10,7 +10,11 @@ int handle_print(const char *format, int *c, va_list argsList, char buffer[], in
  * _printf- Printf lookalike function
  * @format: format.
  *
+<<<<<<< HEAD
  * Return: Printed chars
+=======
+ * Return: the number of characters formatted and printed 
+>>>>>>> 594cd41f1c65175ec733f40d9082538a1bbfeb99
  */
 
 int _printf(const char *format, ...)
