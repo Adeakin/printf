@@ -21,7 +21,7 @@ int hand_precision(const char *format, int *c, va_list argsList)
 	
 	for (cIndex += 1; format[cIndex] != '\0'; cIndex++)
 	{
-		if (is_digit(format[cIndex]))
+		if (format[cIndex])
 		{
 			precision *= 10;
 			precision += format[cIndex] - '0';

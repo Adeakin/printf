@@ -15,7 +15,7 @@ int hand_width(const char *format, int *c, va_list argsList)
 	
 	for (cIndex = *c + 1; format[cIndex] != '\0'; cIndex++)
 	{
-		if (is_digit(format[cIndex]))
+		if (format[cIndex])
 		{
 			width *= 10;
 			width += format[cIndex] - '0';

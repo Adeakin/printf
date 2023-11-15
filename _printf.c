@@ -1,20 +1,18 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * funcs -  function prototypes
  */
 void print_buffer(char buffer[], int *buff_ind);
-int handle_print(const char *fmt, int *c, va_list argsList, char buffer[], int flags, int width, int precision, int size);
 
 /**
  * _printf- Printf lookalike function
- * @format: format.
+ * @format: input format
  *
-<<<<<<< HEAD
- * Return: Printed chars
-=======
- * Return: the number of characters formatted and printed 
->>>>>>> 594cd41f1c65175ec733f40d9082538a1bbfeb99
+ * Return: the number of characters formatted and printed
  */
 
 int _printf(const char *format, ...)
