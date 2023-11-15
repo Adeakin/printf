@@ -19,22 +19,22 @@ int handle_print(const char *fmt, int *ind, va_list argsList, char buffer[],
 	int c, unknownLen = 0, printedChars = -1;
 	
 	/** Format types and their corresponding print functions */
-	fmt_t fmtTypes[] = {
+	fmt_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
 		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
 		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
 		{'r', print_reverse}, {'R', print_string}, {'\0', NULL}
 	};
-	for (c = 0; fmtTypes[c].fmt != '\0'; c++)
+	for (c = 0; fmt_types[c].fmt != '\0'; c++)
 	{
-		if (fmt[*ind] == fmtTypes[c].fmt)
+		if (fmt[*ind] == fmt_types[c].fmt)
 		{
-			return fmtTypes[c].fn(argsList, buffer, flags, width, precision, size);
+			return fmt_types[c].fn(argsList, buffer, flags, width, precision, size);
 		}
 	}
 	/** Handle unknown format specifier */
-	if (fmtTypes[c].fmt == '\0')
+	if (fmt_types[c].fmt == '\0')
 	{
 		if (fmt[*ind] == '\0')
 		{
