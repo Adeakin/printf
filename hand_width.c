@@ -1,4 +1,4 @@
-#include "funcs.h"
+#include "main.h"
 
 /**
  * hand_width - Extracts the width for printing from the format string

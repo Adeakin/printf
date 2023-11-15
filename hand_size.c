@@ -1,4 +1,4 @@
-#include "funcs.h"
+#include "main.h"
 
 /**
  * hand_size - Determines the size modifier for casting the argument

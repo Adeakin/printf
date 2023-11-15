@@ -1,4 +1,4 @@
-#include "funcs.h"
+#include "main.h"
 
 /**
  * hand_flags - Calculate active flags

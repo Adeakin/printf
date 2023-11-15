@@ -1,4 +1,4 @@
-#include "funcs.h"
+#include "main.h"
 
 /**
  * hand_precision - Extracts the precision for printing from the format string

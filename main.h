@@ -19,19 +19,6 @@
 #define S_SHORT 1
 
 /**
- * struct fmt - Struct op
- *
- * @fmt: The format.
- * @fn: The function associated.
- */
-struct fmt
-{
-	char fmt;
-	int (*fn)(va_list, char[], int, int, int, int);
-};
-
-
-/**
  * typedef struct fmt fmt_t - Struct op
  *
  * @fmt: The format.
@@ -83,8 +70,8 @@ int hand_flags(const char *format, int *c);
 int hand_width(const char *format, int *c, va_list argsList);
 int hand_precision(const char *format, int *c, va_list argsList);
 int hand_size(const char *format, int *c);
-int handle_print(const char *format, int *c, va_list argsList, char buffer[], int flags, int width, int precision, int size);
-
+int handle_print(const char *fmt, int *ind, va_list argsList, char buffer[], int flags, int width, int precision, int size);
+int handle_print(const char *fmt, int *c, va_list argsList, char buffer[], int flags, int width, int precision, int size);
 
 
 

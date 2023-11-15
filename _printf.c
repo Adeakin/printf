@@ -1,10 +1,10 @@
-#include "funcs.h"
+#include "main.h"
 
 /**
  * funcs -  function prototypes
  */
 void print_buffer(char buffer[], int *buff_ind);
-int handle_print(const char *format, int *c, va_list argsList, char buffer[], int flags, int width, int precision, int size);
+int handle_print(const char *fmt, int *c, va_list argsList, char buffer[], int flags, int width, int precision, int size);
 
 /**
  * _printf- Printf lookalike function
