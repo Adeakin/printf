@@ -1,61 +1,36 @@
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_ind);
-
 /**
- * _printf - Printf look alike function
- * @format: format.
  *
- * Return: Printed chars.
+ *_printf - implementation of the inbuilt printf
+ * @format: the format specifier
+ * Return: the formated string
+ *
  */
+
 int _printf(const char *format, ...)
 {
-	int i, printed = 0, printed_chars = 0;
-	int flags, width, precision, size, buff_ind = 0;
-	va_list argsList;
-	char buffer[BUFF_SIZE];
+	int printed = 0;
 
-	if (format == NULL)
-		return (-1);
+	va_list args;
 
-	va_start(argsList, format);
+	va_start(args, format);
 
-	for (i = 0; format && format[i] != '\0'; i++)
+	while (*format != '\0')
 	{
-		if (format[i] != '%')
+		if (*format == '%')
 		{
-			buffer[buff_ind++] = format[i];
-			if (buff_ind == BUFF_SIZE)
-				print_buffer(buffer, &buff_ind);
-			printed_chars++;
+			format++;
+			printed = selector(format, args, printed);
+			format++;
 		}
 		else
 		{
-			print_buffer(buffer, &buff_ind);
-			flags = hand_flags(format, &i);
-			width = hand_width(format, &i, argsList);
-			precision = hand_precision(format, &i, argsList);
-			size = hand_size(format, &i);
-			++i;
-			printed = handle_print(format, &i, argsList, buffer,
-				flags, width, precision, size);
-			if (printed == -1)
-				return (-1);
-			printed_chars += printed;
+			_putchar(*format);
+			printed++;
+			format++;
 		}
 	}
-
-	print_buffer(buffer, &buff_ind);
-
-	va_end(argsList);
-
-	return (printed_chars);
-}
-
-void print_buffer(char buffer[], int *buff_ind)
-{
-	if (*buff_ind > 0)
-		write(1, &buffer[0], *buff_ind);
-
-	*buff_ind = 0;
+	va_end(args);
+	return (printed);
 }
