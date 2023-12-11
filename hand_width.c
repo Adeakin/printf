@@ -1,40 +1,36 @@
 #include "main.h"
 
 /**
- * hand_width - Extracts the width for printing from the format string
- * @format: Format string containing the arguments
- * @c: Argument to be printed
- * @argsList: List of arguments
- * 
- * Return: Extracted width
+ * hand_width - Calculates the width for printing
+ * @format: Formatted string in which to print the arguments.
+ * @i: List of arguments to be printed.
+ * @list: list of arguments.
+ *
+ * Return: width.
  */
-int hand_width(const char *format, int *c, va_list argsList)
+int hand_width(const char *format, int *i, va_list list)
 {
-	int cIndex;
+	int curr_i;
 	int width = 0;
-	
-	for (cIndex = *c + 1; format[cIndex] != '\0'; cIndex++)
+
+	for (curr_i = *i + 1; format[curr_i] != '\0'; curr_i++)
 	{
-		if (format[cIndex])
+		if (is_digit(format[curr_i]))
 		{
 			width *= 10;
-			width += format[cIndex] - '0';
+			width += format[curr_i] - '0';
 		}
-		else if (format[cIndex] == '*')
+		else if (format[curr_i] == '*')
 		{
-			cIndex++;
-			width = va_arg(argsList, int);
+			curr_i++;
+			width = va_arg(list, int);
 			break;
 		}
 		else
-		{
 			break;
-		}
 	}
 
-	/** Update the index to the last processed position **/
-	*c = cIndex - 1;
-	
-	return width;
-}
+	*i = curr_i - 1;
 
+	return (width);
+}

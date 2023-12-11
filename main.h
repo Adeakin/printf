@@ -24,10 +24,11 @@
  * @fmt: The format.
  * @fm_t: The function associated.
  */
+
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *c,
+int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
@@ -66,13 +67,27 @@ int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* Functions to handle other specifiers */
-int hand_flags(const char *format, int *c);
-int hand_width(const char *format, int *c, va_list argsList);
-int hand_precision(const char *format, int *c, va_list argsList);
-int hand_size(const char *format, int *c);
-int handle_print(const char *fmt, int *ind, va_list argsList, char buffer[], int flags, int width, int precision, int size);
-int handle_print(const char *fmt, int *c, va_list argsList, char buffer[], int flags, int width, int precision, int size);
+int hand_flags(const char *format, int *i);
+int hand_width(const char *format, int *i, va_list list);
+int hand_size(const char *format, int *i);
+int hand_precision(const char *format, int *i, va_list list);
+int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
+	int flags, int width, int precision, int size);
 
+/****************** UTILS ******************/
+int is_printable(char);
+int append_hexa_code(char, char[], int);
+int is_digit(char);
 
+long int convert_size_number(long int num, int size);
+long int convert_size_unsgnd(unsigned long int num, int size);
 
-#endif /* FUNCS_H */
+/*Function to print string in reverse*/
+int print_reverse(va_list types, char buffer[],
+	int flags, int width, int precision, int size);
+
+/*Function to print a string in rot 13*/
+int print_rot13string(va_list types, char buffer[],
+	int flags, int width, int precision, int size);
+
+#endif /* MAIN_H */

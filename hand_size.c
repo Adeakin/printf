@@ -1,35 +1,26 @@
 #include "main.h"
 
 /**
- * hand_size - Determines the size modifier for casting the argument
- * @format: Format string containing the arguments
- * @c: Current position in the format string
- * 
- * Return: Size modifier
+ * hand_size -Calculates the size to cast the argument
+ * @format: Formatted string in which to print the arguments
+ * @i: List of arguments to be printed.
+ *
+ * Return: Precision.
  */
-int hand_size(const char *format, int *c)
+int hand_size(const char *format, int *i)
 {
-	int cIndex = *c + 1;
+	int curr_i = *i + 1;
 	int size = 0;
-	
-	if (format[cIndex] == 'l')
-	{
-		size = S_LONG;
-	}
-	else if (format[cIndex] == 'h')
-	{
-		size = S_SHORT;
-	}
-	
-	if (size == 0)
-	{
-		*c = cIndex - 1;
-	}
-	else
-	{
-		*c = cIndex;
-	}
-	
-	return size;
-}
 
+	if (format[curr_i] == 'l')
+		size = S_LONG;
+	else if (format[curr_i] == 'h')
+		size = S_SHORT;
+
+	if (size == 0)
+		*i = curr_i - 1;
+	else
+		*i = curr_i;
+
+	return (size);
+}
