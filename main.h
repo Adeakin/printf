@@ -1,19 +1,7 @@
-#ifndef FUNCS_H
-#define FUNCS_H
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
+#ifndef MAIN_H
+#define MAIN_H
 
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
-
-/* THE FLAGS */
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
-
+<<<<<<< HEAD
 /* THE SIZES */
 #define S_LONG 2
 #define S_SHORT 1
@@ -26,8 +14,22 @@
  */
 
 typedef struct fmt fmt_t;
+=======
+>>>>>>> e4761cb15d98dbf2b9bf78a95fa9e8d0966f7b46
 
+#include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <limits.h>
+
+int _putchar(char character);
+int printf_char(va_list args, int printed);
+int printf_string(va_list args, int printed);
+int printf_integer(va_list args, int printed);
+int selector(const char *format, va_list args, int printed);
+int printf_binary(unsigned int num, int printed);
 int _printf(const char *format, ...);
+<<<<<<< HEAD
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
@@ -91,3 +93,12 @@ int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 #endif /* MAIN_H */
+=======
+int _x(unsigned int num, int printed, int uppercase);
+int printf_octal(unsigned int num, int printed);
+int printf_unsigned(unsigned int num, int printed);
+int printf_reverse(va_list args, int printed);
+int printf_pointer(va_list args, int printed);
+
+#endif
+>>>>>>> e4761cb15d98dbf2b9bf78a95fa9e8d0966f7b46
